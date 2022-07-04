@@ -421,7 +421,7 @@ func (ctrl *OperatorSpecController) newOperator(logger *zap.Logger, spec *networ
 	case network.OperatorDHCP4:
 		logger = logger.With(zap.String("operator", "dhcp4"))
 
-		return operator.NewDHCP4(logger, spec.LinkName, spec.DHCP4.RouteMetric, ctrl.V1alpha1Platform)
+		return operator.NewDHCP4(logger, spec.LinkName, spec.DHCP4.RouteMetric, ctrl.V1alpha1Platform, ctrl.State)
 	case network.OperatorDHCP6:
 		logger = logger.With(zap.String("operator", "dhcp6"))
 
