@@ -22,7 +22,7 @@ type HostnameSpec = typed.Resource[HostnameSpecSpec, HostnameSpecRD]
 // HostnameID is the ID of the singleton instance.
 const HostnameID resource.ID = "hostname"
 
-// HostnameSpecSpec describes node nostname.
+// HostnameSpecSpec describes node hostname.
 type HostnameSpecSpec struct {
 	Hostname    string      `yaml:"hostname"`
 	Domainname  string      `yaml:"domainname"`
