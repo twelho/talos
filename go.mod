@@ -5,7 +5,7 @@ go 1.18
 replace (
 	// Forked insomniacslk/dhcp with DHCP spec compliancy fixes
 	// Upstream PR: https://github.com/insomniacslk/dhcp/pull/469
-	github.com/insomniacslk/dhcp => github.com/twelho/dhcp v0.0.0-20220715112904-b8a3a197d4e4
+	github.com/insomniacslk/dhcp => github.com/twelho/dhcp v0.0.0-20220718131601-ab598bda1d45
 
 	// Use nested module.
 	github.com/talos-systems/talos/pkg/machinery => ./pkg/machinery
