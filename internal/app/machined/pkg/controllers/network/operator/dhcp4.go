@@ -112,7 +112,7 @@ func (d *DHCP4) Run(ctx context.Context, notifyCh chan<- struct{}) {
 	}
 
 	for {
-		// always request a hostname from DHCP together with a lease
+		// always request a hostname from DHCP together with a lease negotiation
 		requestHostname := d.offer == nil
 
 		leaseTime, err := d.requestRenew(ctx, hostname)
@@ -474,10 +474,12 @@ func (d *DHCP4) requestHostname(ctx context.Context) error {
 
 func (d *DHCP4) requestRenew(ctx context.Context, hostname string) (time.Duration, error) {
 	opts := []dhcpv4.OptionCode{
-		dhcpv4.OptionNTPServers,
+		dhcpv4.OptionClasslessStaticRoute,
+		dhcpv4.OptionDomainNameServer,
 		// TODO(twelho): This is unused until network.ResolverSpec supports search domains
 		dhcpv4.OptionDNSDomainSearchList,
-		dhcpv4.OptionClasslessStaticRoute,
+		dhcpv4.OptionNTPServers,
+		dhcpv4.OptionDomainName,
 	}
 
 	if d.requestMTU {
